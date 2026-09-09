@@ -12,7 +12,7 @@ A five-page portfolio for a musician, record producer, and audio engineer. The d
 - `/about/` — biography, practice, and NYU projects.
 - `/contact/` — email, social links, and a form that opens a draft in the visitor's email app.
 
-Old home links such as `/#live` redirect to the corresponding page. Playback stops on page navigation and never starts automatically.
+Old home links such as `/#live` redirect to the corresponding page. Playback stops on page navigation and never starts automatically. Home offers a direct preview; the player draws a waveform from the actual streamed audio. Reduced-motion preferences disable decorative animation, and native seeking remains available if waveform decoding fails.
 
 ## Run and build
 
@@ -33,6 +33,7 @@ Open http://127.0.0.1:5173. The render script creates five static HTML documents
 - `src/shared.mjs`: navigation, footer, metadata and shared player.
 - `styles.css`: typography, color, layout, responsive rules and states.
 - `app.js`: player, menu, release deep links, legacy redirects, contact draft.
+- `motion.css` and `motion.js`: entrance choreography, interaction states, and decoded audio waveform.
 - `music.json`: verified release/track metadata and preview URLs.
 - `research/README.md`: factual sources and limits.
 - `research/DESIGN-REFERENCES.md`: reference websites and design decisions.

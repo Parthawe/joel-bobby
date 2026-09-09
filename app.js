@@ -31,6 +31,13 @@ document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && 
 
 function syncPlayback() {
   const playing = !audio.paused && !audio.ended;
+  document.body.classList.toggle('is-playing', playing);
+  document.querySelectorAll('[data-preview]').forEach(button => {
+    const isPlaying = playing && active?.release === 'pills' && active?.index === 2;
+    button.querySelector('.preview-icon').innerHTML = icon(isPlaying ? 'pause' : 'play');
+    button.querySelector('.preview-label').textContent = isPlaying ? 'Pause preview' : 'Play a preview';
+    button.setAttribute('aria-label', `${isPlaying ? 'Pause' : 'Play'} Ninde Koode preview`);
+  });
   $('#player-toggle').innerHTML = icon(playing ? 'pause' : 'play');
   $('#player-toggle').setAttribute('aria-label', playing ? 'Pause preview' : 'Play preview');
   document.querySelectorAll('.track').forEach(button => {
@@ -45,6 +52,7 @@ function syncPlayback() {
 function renderRelease(id) {
   const release = releases.find(item => item.id === id);
   if (!release || !$('#listening-room')) return;
+  const changed = selected !== id;
   selected = id;
   document.querySelectorAll('[data-release]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.release === id)));
   $('#release-art').src = root + release.image;
@@ -68,6 +76,10 @@ function renderRelease(id) {
   });
   syncPlayback();
   $('#listening-room').setAttribute('aria-busy', 'false');
+  if (changed && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    $('#release-art').animate([{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0)'}], {duration:500,easing:'cubic-bezier(.16,1,.3,1)'});
+    $('.record-info').animate([{opacity:.45,transform:'translateX(12px)'},{opacity:1,transform:'none'}], {duration:350,easing:'cubic-bezier(.16,1,.3,1)'});
+  }
 }
 function showPlaybackError() {
   $('#player-error').replaceChildren(document.createTextNode('Preview unavailable. '));
@@ -120,10 +132,14 @@ audio.addEventListener('loadedmetadata', () => { $('#player-seek').max = audio.d
 ['play', 'pause', 'ended'].forEach(name => audio.addEventListener(name, syncPlayback));
 audio.addEventListener('error', showPlaybackError);
 document.querySelectorAll('[data-release]').forEach(button => button.addEventListener('click', () => { renderRelease(button.dataset.release); const next = new URL(location.href); next.searchParams.set('release', button.dataset.release); history.replaceState(null, '', next); }));
-fetch(root + 'music.json').then(response => { if (!response.ok) throw new Error('Music unavailable'); return response.json(); }).then(data => { releases = data; renderRelease(selected); }).catch(() => {
+document.querySelectorAll('[data-preview]').forEach(button => button.addEventListener('click', () => {
+  lastTrigger = button; playTrack('pills', 2);
+}));
+fetch(root + 'music.json').then(response => { if (!response.ok) throw new Error('Music unavailable'); return response.json(); }).then(data => { releases = data; renderRelease(selected); document.querySelectorAll('[data-preview]').forEach(button => { button.disabled = false; }); }).catch(() => {
   if ($('#track-list')) $('#track-list').innerHTML = '<p>Track previews could not load. You can still hear the full release on Apple Music below.</p>';
   $('#listening-room')?.setAttribute('aria-busy', 'false');
   document.querySelectorAll('[data-release]').forEach(button => { button.disabled = true; });
+  document.querySelectorAll('[data-preview] .preview-label').forEach(label => { label.textContent = 'Preview unavailable'; });
 });
 $('#year').textContent = new Date().getFullYear();
 $('#copy-email')?.addEventListener('click', async () => {

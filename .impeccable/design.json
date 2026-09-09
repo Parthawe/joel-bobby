@@ -62,40 +62,40 @@
     "shadows": [
       {
         "name": "player",
-        "value": "0 12px 40px #10171045",
-        "purpose": "Separates the fixed audio player from page content."
+        "value": "0 15px 50px #080d0840",
+        "purpose": "Floating player separation."
       },
       {
-        "name": "current-page",
-        "value": "0 1px var(--brass)",
-        "purpose": "One-pixel underline for the current desktop navigation link; removed on mobile."
+        "name": "sleeve",
+        "value": "0 22px 45px #17191618",
+        "purpose": "Selected artwork depth."
       }
     ],
     "motion": [
       {
-        "name": "hero-arrival",
-        "value": ".8s cubic-bezier(.16,1,.3,1)",
-        "purpose": "Home text rises 12px with a small clip reveal when reduced motion is not requested."
+        "name": "name-mask",
+        "value": "850ms cubic-bezier(.16,1,.3,1), 80ms second-line delay",
+        "purpose": "Two-line artist-name entrance."
       },
       {
-        "name": "album-hover",
-        "value": "transform .7s cubic-bezier(.16,1,.3,1)",
-        "purpose": "Cover art scales to 1.035 on hover."
+        "name": "studio-aperture",
+        "value": "1100ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Cropped portrait settles into its final framing."
       },
       {
-        "name": "album-action",
-        "value": "opacity .2s ease, transform .2s ease",
-        "purpose": "Action plate appears on hover and keyboard focus, moving from 6px below; mobile keeps it visible."
+        "name": "release-change",
+        "value": "500ms artwork, 350ms track metadata",
+        "purpose": "Show a different selected release."
       },
       {
-        "name": "button-hover",
-        "value": "background .2s ease",
-        "purpose": "Brass button changes to its lighter hover fill."
+        "name": "audio-envelope",
+        "value": "up to 30fps while playing and visible",
+        "purpose": "Actual decoded audio envelope with native-clock progress and native range-input fallback."
       },
       {
         "name": "reduced-motion",
         "value": "prefers-reduced-motion: reduce",
-        "purpose": "Disables animation, transitions, and smooth scrolling."
+        "purpose": "Disable decorative animations and smooth scrolling; retain timeupdate-based progress."
       }
     ],
     "breakpoints": [
@@ -121,9 +121,9 @@
     {
       "name": "Primary action",
       "kind": "button",
-      "description": "Square brass action with a lighter hover state.",
+      "description": "Capsule brass action with a lighter hover state.",
       "html": "<button class=\"ds-button\">Open email draft</button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:24px;min-height:54px;padding:15px 24px;background:var(--brass,#bea47b);color:var(--ink,#171916);border:0;border-radius:0;font:700 12px/1.7 Manrope,sans-serif;cursor:pointer;transition:background .2s}.ds-button:hover{background:#d1bc9b}.ds-button:focus-visible{outline:2px solid #a97736;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:24px;min-height:54px;padding:15px 25px;background:var(--brass,#bea47b);color:var(--ink,#171916);border:0;border-radius:40px;font:700 12px/1.7 Manrope,sans-serif;cursor:pointer;transition:background .2s}.ds-button:hover{background:#d1bc9b}.ds-button:focus-visible{outline:2px solid #a97736;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}",
       "refersTo": "button"
     },
     {
@@ -162,12 +162,12 @@
       "kind": "card",
       "description": "Caption and role row beneath the square album image.",
       "html": "<article class=\"ds-caption-card\"><div class=\"ds-caption\"><div><h3><a href=\"./music/?release=pills\">Pills</a></h3><p>Joash Mathew</p></div><span>2022</span></div><p class=\"ds-role\">Bass \u00b7 Production \u00b7 Recording \u00b7 Mixing</p></article>",
-      "css": ".ds-caption-card{color:var(--ink,#171916);font-family:Manrope,sans-serif;line-height:1.7}.ds-caption{display:flex;justify-content:space-between;gap:20px;align-items:baseline;margin-top:23px}.ds-caption h3{margin:0;font-size:24px;font-weight:600;line-height:1.3;letter-spacing:-.02em}.ds-caption a{color:inherit;text-decoration:none}.ds-caption p{font-size:14px;color:var(--muted,#686b62);margin:4px 0 0}.ds-caption>span{font-size:11px;color:var(--muted,#686b62)}.ds-role{font-size:11px;margin:15px 0 0;padding-top:15px;border-top:1px solid var(--line,#d2d3c9);color:var(--muted,#686b62)}.ds-caption a:focus-visible{outline:2px solid #a97736;outline-offset:6px}"
+      "css": ".ds-caption-card{color:var(--ink,#171916);font-family:Manrope,sans-serif;line-height:1.7}.ds-caption{display:flex;justify-content:space-between;gap:20px;align-items:baseline;margin-top:23px}.ds-caption h3{margin:0;font-size:30px;font-weight:500;line-height:1.3;letter-spacing:-.02em}.ds-caption a{color:inherit;text-decoration:none}.ds-caption p{font-size:14px;color:var(--muted,#686b62);margin:4px 0 0}.ds-caption>span{font-size:11px;color:var(--muted,#686b62)}.ds-role{font-size:11px;margin:15px 0 0;padding-top:15px;border-top:1px solid var(--line,#d2d3c9);color:var(--muted,#686b62)}.ds-caption a:focus-visible{outline:2px solid #a97736;outline-offset:6px}"
     },
     {
       "name": "Playback seek field",
       "kind": "input",
-      "description": "Native range control on the charcoal player surface.",
+      "description": "Native seek input with a progressively enhanced decoded waveform canvas.",
       "html": "<div class=\"ds-player-surface\"><input class=\"ds-seek\" type=\"range\" min=\"0\" max=\"30\" value=\"0\" step=\"0.1\" aria-label=\"Preview playback position\"></div>",
       "css": ".ds-player-surface{background:var(--ink,#171916);padding:14px 20px}.ds-seek{width:100%;min-width:40px;accent-color:var(--brass,#bea47b);height:28px;cursor:pointer}.ds-seek:focus-visible{outline:2px solid #a97736;outline-offset:6px}"
     }
@@ -180,7 +180,8 @@
       "Charcoal header, photographic hero, footer, and audio player.",
       "Warm paper content and brass actions.",
       "Home, Music, Live Work, About, and Contact at separate URLs.",
-      "Manual previews, exact credits, and an email-draft contact form."
+      "Manual previews, exact credits, and an email-draft contact form.",
+      "Two-line masked name entrance, direct homepage preview, and actual audio waveform."
     ],
     "rules": [
       {
@@ -190,7 +191,7 @@
       },
       {
         "name": "Flat surfaces",
-        "body": "Use rules and tonal changes for structure; reserve the floating-panel shadow for the audio player.",
+        "body": "Use rules and tonal changes for structure; soft shadows distinguish the selected sleeve and floating audio player.",
         "section": "elevation"
       }
     ],

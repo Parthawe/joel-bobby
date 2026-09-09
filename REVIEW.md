@@ -1,4 +1,12 @@
-# Five-page release review
+# Premium motion refinement
+
+The current refinement was checked in desktop and mobile browsers. All five routes fit 390px and 320px widths. Real previews played from the homepage and both releases; the waveform decoded successfully for Ninde Koode and Panchi. Play/pause, keyboard seeking, player-close focus return, release switching, and mobile menu Enter/Tab/Escape paths passed. Static route/asset checks and JavaScript syntax checks passed.
+
+Reduced-motion behavior was verified in code; the available browser controls do not emulate that preference. CSS disables decorative motion, JavaScript skips release animations, and waveform progress uses timeupdate rather than an animation loop.
+
+The earlier independent review below applies to the five-page baseline, before this motion refinement.
+
+## Five-page baseline review
 
 Final disposition: **Approved — no remaining material fixes.** An independent impeccable finish reviewer inspected eleven desktop/mobile viewport screenshots and the implementation, then verified the focused keyboard-navigation correction.
 
