@@ -10,3 +10,12 @@ Photographs and artwork retain their original owners' rights. This repository do
 - Phosphor icon font: official @phosphor-icons/web package. MIT notice included in `assets/fonts/`.
 
 Audio previews stream directly from Apple's catalog URLs after a visitor clicks play. No audio files or complete songs are hosted in this repository. The full release links remain available if previews fail.
+
+## Original 3D bass
+
+`src/3d/bass-model.mjs` is an original, unbranded four-string bass study made for this portfolio. It does not identify Joel's personal instrument. The model includes an extruded contoured body, neck, fingerboard, 22 frets, four strings, pickups, bridge, controls, and tuning hardware.
+
+- `assets/3d/bass-guitar.glb`: reusable glTF 2.0 binary export of the original geometry and materials.
+- `assets/3d/bass-poster.png`: browser render of this model, used when 3D is unavailable.
+- `assets/3d/guitar-scene.js`: bundled Three.js viewer and original scene code. Three.js is MIT licensed; its notice is included in `assets/3d/THREE-LICENSE.txt`.
+- Wood grain is generated in the scene; no third-party model, texture, logo, or photograph was used for the bass.

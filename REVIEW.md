@@ -1,3 +1,7 @@
+# About-page 3D bass addition
+
+Verified the custom model in the live browser at desktop and phone widths. Pointer drag changed rotation from -18° to 93° and exposed the body's side profile. Directional buttons, keyboard arrows, reset, and auto-rotation controls worked. No browser errors were captured during the final test. Geometry and assets are original; model provenance and the Three.js license are recorded in ASSETS.md.
+
 # Premium motion refinement
 
 The current refinement was checked in desktop and mobile browsers. All five routes fit 390px and 320px widths. Real previews played from the homepage and both releases; the waveform decoded successfully for Ninde Koode and Panchi. Play/pause, keyboard seeking, player-close focus return, release switching, and mobile menu Enter/Tab/Escape paths passed. Static route/asset checks and JavaScript syntax checks passed.

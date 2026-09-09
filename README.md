@@ -16,7 +16,7 @@ Old home links such as `/#live` redirect to the corresponding page. Playback sto
 
 ## Run and build
 
-Requires Node.js 18+ and Python 3. No runtime framework or backend.
+Requires Node.js 18+ and Python 3. No frontend framework or backend. The About page lazy-loads a self-hosted Three.js viewer.
 
 ```sh
 npm run render
@@ -34,6 +34,8 @@ Open http://127.0.0.1:5173. The render script creates five static HTML documents
 - `styles.css`: typography, color, layout, responsive rules and states.
 - `app.js`: player, menu, release deep links, legacy redirects, contact draft.
 - `motion.css` and `motion.js`: entrance choreography, interaction states, and decoded audio waveform.
+- `src/3d/`: original bass model and interactive scene; `npm run build:guitar` rebuilds the bundle and GLB asset.
+- `guitar.css` and `guitar.js`: About-only layout and lazy loader.
 - `music.json`: verified release/track metadata and preview URLs.
 - `research/README.md`: factual sources and limits.
 - `research/DESIGN-REFERENCES.md`: reference websites and design decisions.
@@ -54,3 +56,5 @@ git push
 GitHub Pages serves `/docs` on `main`. `prepare:pages` renders all pages, builds `dist`, then refreshes `docs` including subdirectories. Local font/image assets work from the GitHub project path.
 
 The contact form does not send or store messages. Apple Music hosts the streamed previews; direct full-release links remain available if a preview fails. Design reference sites contribute no assets or copied content.
+
+The 3D bass at `/about/#bass` supports drag, arrow keys, rotation buttons, reset, and optional auto-rotation. Vertical touch scrolling remains native. Reduced-motion preferences keep automatic rotation off; WebGL failures retain a rendered poster. The viewer is loaded only near the About section.

@@ -195,3 +195,11 @@ Release changes wipe the sleeve over 500ms and settle the new track information 
 The player decodes each requested preview lazily into 512 RMS samples. A canvas draws the real audio envelope and colors elapsed progress from the native audio clock. The range input remains above it for pointer and keyboard seeking. If fetching or decoding fails, the native range input remains visible and audio playback is unaffected. Decoded envelopes are cached, prior fetches cancel when the source changes, and animation frames stop when paused, ended, hidden, or reduced motion is requested.
 
 Detector review: the track hover now translates its title instead of animating padding. Remaining type-size advisories reflect the documented responsive display, subtitle, and icon sizes, rather than a shared UI-label ramp.
+
+## About: 3D bass study
+
+The `#bass` section follows Joel's portrait and biography. A charcoal-green stage (#1c211c) pairs a short introduction and link to Music with an original amber, rosewood, and nickel four-string bass. It is labelled as an interactive study, without implying ownership or a manufacturer. The body and hardware are real 3D meshes, not a flat-image transform.
+
+The stage is 650px high on desktop, 500px on mobile, and 445px at the narrowest breakpoint. Desktop copy/model columns use a .85:1.45 ratio; mobile stacks them. A thin rule separates the model from status text and labelled controls. Text uses the existing Manrope hierarchy; the custom WebGL scene uses the site's warm studio lighting.
+
+Drag rotates the model; arrow keys and directional buttons provide equivalent controls. Reset restores its three-quarter view. Auto-rotation is off by default, pauses offscreen/when hidden, and stays off with reduced motion. Rendering otherwise happens only on interaction or resize. The Three.js bundle loads within 200px of the section, only on About. A still render and clear status remain available if the browser cannot display WebGL.

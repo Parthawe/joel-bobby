@@ -4,15 +4,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node scripts/render-pages.mjs && python3 -m http.server 5173 --bind 127.0.0.1",
+    "dev": "node scripts/render-pages.mjs && node scripts/build-guitar.mjs && python3 -m http.server 5173 --bind 127.0.0.1",
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs",
     "prepare:pages": "node scripts/prepare-pages.mjs",
-    "render": "node scripts/render-pages.mjs"
+    "render": "node scripts/render-pages.mjs",
+    "build:guitar": "node scripts/build-guitar.mjs"
   },
   "devDependencies": {
     "@fontsource-variable/antonio": "^5.3.0",
     "@fontsource-variable/manrope": "^5.3.0",
-    "@phosphor-icons/web": "^2.1.2"
+    "@phosphor-icons/web": "^2.1.2",
+    "esbuild": "0.28.2",
+    "three": "0.186.0"
   }
 }
