@@ -6,19 +6,19 @@
     "colorMeta": {
       "ink": {
         "role": "neutral",
-        "displayName": "Midnight blue"
+        "displayName": "Charcoal"
       },
       "paper": {
         "role": "neutral",
-        "displayName": "Porcelain"
+        "displayName": "Warm paper"
       },
       "white": {
         "role": "neutral",
         "displayName": "Soft white"
       },
-      "accent": {
+      "brass": {
         "role": "primary",
-        "displayName": "Coral"
+        "displayName": "Muted brass"
       },
       "muted": {
         "role": "neutral",
@@ -30,7 +30,7 @@
       },
       "dark-muted": {
         "role": "neutral",
-        "displayName": "Light gray on midnight blue"
+        "displayName": "Light gray on charcoal"
       }
     },
     "typographyMeta": {
@@ -62,12 +62,12 @@
     "shadows": [
       {
         "name": "player",
-        "value": "0 15px 50px #08132a40",
+        "value": "0 15px 50px #080d0840",
         "purpose": "Floating player separation."
       },
       {
         "name": "sleeve",
-        "value": "0 22px 45px #101e3818",
+        "value": "0 22px 45px #17191618",
         "purpose": "Selected artwork depth."
       }
     ],
@@ -121,9 +121,9 @@
     {
       "name": "Primary action",
       "kind": "button",
-      "description": "Capsule accent action with a lighter hover state.",
+      "description": "Capsule brass action with a lighter hover state.",
       "html": "<button class=\"ds-button\">Open email draft</button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:24px;min-height:54px;padding:15px 25px;background:var(--accent,#ff866e);color:var(--ink,#101e38);border:0;border-radius:40px;font:700 12px/1.7 Manrope,sans-serif;cursor:pointer;transition:background .2s}.ds-button:hover{background:#ffa591}.ds-button:focus-visible{outline:2px solid #d95b46;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:24px;min-height:54px;padding:15px 25px;background:var(--brass,#bea47b);color:var(--ink,#171916);border:0;border-radius:40px;font:700 12px/1.7 Manrope,sans-serif;cursor:pointer;transition:background .2s}.ds-button:hover{background:#d1bc9b}.ds-button:focus-visible{outline:2px solid #a97736;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}",
       "refersTo": "button"
     },
     {
@@ -131,7 +131,7 @@
       "kind": "button",
       "description": "Underlined contextual link.",
       "html": "<a class=\"ds-link\" href=\"./music/\">All music & credits</a>",
-      "css": ".ds-link{display:inline-flex;align-items:center;gap:22px;font:600 12px/1.7 Manrope,sans-serif;padding:10px 0;min-height:44px;color:var(--ink,#101e38);text-decoration:none;border-bottom:1px solid currentColor}.ds-link:hover{color:#9c3c33}.ds-link:focus-visible{outline:2px solid #d95b46;outline-offset:6px}",
+      "css": ".ds-link{display:inline-flex;align-items:center;gap:22px;font:600 12px/1.7 Manrope,sans-serif;padding:10px 0;min-height:44px;color:var(--ink,#171916);text-decoration:none;border-bottom:1px solid currentColor}.ds-link:hover{color:#82633a}.ds-link:focus-visible{outline:2px solid #a97736;outline-offset:6px}",
       "refersTo": "text-link"
     },
     {
@@ -139,14 +139,14 @@
       "kind": "nav",
       "description": "Shared desktop navigation with current-page state.",
       "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"./\" aria-current=\"page\">Home</a><a href=\"./music/\">Music</a><a href=\"./live/\">Live work</a><a href=\"./about/\">About</a><a href=\"./contact/\">Contact</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:32px;background:var(--ink,#101e38);padding:24px;font-family:Manrope,sans-serif;flex-wrap:wrap}.ds-nav a{font-size:12px;line-height:1.7;padding:8px 0;color:#d0dbee;text-decoration:none}.ds-nav a:hover,.ds-nav a[aria-current=page]{color:var(--white,#ffffff)}.ds-nav a[aria-current=page]{box-shadow:0 1px var(--accent,#ff866e)}.ds-nav a:focus-visible{outline:2px solid #d95b46;outline-offset:6px}"
+      "css": ".ds-nav{display:flex;align-items:center;gap:32px;background:var(--ink,#171916);padding:24px;font-family:Manrope,sans-serif;flex-wrap:wrap}.ds-nav a{font-size:12px;line-height:1.7;padding:8px 0;color:#d0d2c8;text-decoration:none}.ds-nav a:hover,.ds-nav a[aria-current=page]{color:var(--white,#faf9f5)}.ds-nav a[aria-current=page]{box-shadow:0 1px var(--brass,#bea47b)}.ds-nav a:focus-visible{outline:2px solid #a97736;outline-offset:6px}"
     },
     {
       "name": "Contact field",
       "kind": "input",
       "description": "Visible label and transparent field with a bottom border.",
       "html": "<div class=\"ds-form-surface\"><label class=\"ds-label\">Your email<input class=\"ds-input\" type=\"email\" name=\"email\" autocomplete=\"email\" required maxlength=\"180\" placeholder=\"you@example.com\"></label></div>",
-      "css": ".ds-form-surface{background:#e2e9f4;padding:35px;color:var(--ink,#101e38);font-family:Manrope,sans-serif}.ds-label{display:block;font-size:11px;font-weight:650;line-height:1.7}.ds-input{display:block;width:100%;min-width:0;background:transparent;border:0;border-bottom:1px solid #92a4c0;padding:12px 0;border-radius:0;color:var(--ink,#101e38);font:400 13px/1.7 Manrope,sans-serif;caret-color:#9c3c33}.ds-input::placeholder{color:#53627b;opacity:1}.ds-input:focus-visible{outline:2px solid #d95b46;outline-offset:3px}@media(max-width:700px){.ds-input{font-size:16px}}",
+      "css": ".ds-form-surface{background:#e3e3d9;padding:35px;color:var(--ink,#171916);font-family:Manrope,sans-serif}.ds-label{display:block;font-size:11px;font-weight:650;line-height:1.7}.ds-input{display:block;width:100%;min-width:0;background:transparent;border:0;border-bottom:1px solid #a4a99a;padding:12px 0;border-radius:0;color:var(--ink,#171916);font:400 13px/1.7 Manrope,sans-serif;caret-color:#755929}.ds-input::placeholder{color:#626958;opacity:1}.ds-input:focus-visible{outline:2px solid #a97736;outline-offset:3px}@media(max-width:700px){.ds-input{font-size:16px}}",
       "refersTo": "input"
     },
     {
@@ -154,7 +154,7 @@
       "kind": "custom",
       "description": "Track action; pressed state means current playback.",
       "html": "<button class=\"ds-track\" aria-pressed=\"false\" aria-label=\"Play track preview\"><span class=\"ds-number\">01</span><span class=\"ds-title\">Track title</span><span class=\"ds-duration\">0:30</span><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7Z\" fill=\"currentColor\"/></svg></button>",
-      "css": ".ds-track{display:grid;grid-template-columns:22px 1fr 36px 25px;gap:11px;align-items:center;text-align:left;width:100%;min-height:55px;padding:14px 5px;border:0;border-bottom:1px solid var(--line,#cad3e3);background:none;color:var(--ink,#101e38);font:400 12px/1.7 Manrope,sans-serif;cursor:pointer}.ds-track:hover{background:#e2e9f4}.ds-track[aria-pressed=true]{background:#f8ded8}.ds-number,.ds-duration{color:var(--muted,#53627b);font-size:10px;font-variant-numeric:tabular-nums}.ds-title{font-weight:600}.ds-track svg{justify-self:end}.ds-track:focus-visible{outline:2px solid #d95b46;outline-offset:6px}",
+      "css": ".ds-track{display:grid;grid-template-columns:22px 1fr 36px 25px;gap:11px;align-items:center;text-align:left;width:100%;min-height:55px;padding:14px 5px;border:0;border-bottom:1px solid var(--line,#d2d3c9);background:none;color:var(--ink,#171916);font:400 12px/1.7 Manrope,sans-serif;cursor:pointer}.ds-track:hover{background:#e3e3d9}.ds-track[aria-pressed=true]{background:#ded8ca}.ds-number,.ds-duration{color:var(--muted,#686b62);font-size:10px;font-variant-numeric:tabular-nums}.ds-title{font-weight:600}.ds-track svg{justify-self:end}.ds-track:focus-visible{outline:2px solid #a97736;outline-offset:6px}",
       "refersTo": "track"
     },
     {
@@ -162,23 +162,23 @@
       "kind": "card",
       "description": "Caption and role row beneath the square album image.",
       "html": "<article class=\"ds-caption-card\"><div class=\"ds-caption\"><div><h3><a href=\"./music/?release=pills\">Pills</a></h3><p>Joash Mathew</p></div><span>2022</span></div><p class=\"ds-role\">Bass \u00b7 Production \u00b7 Recording \u00b7 Mixing</p></article>",
-      "css": ".ds-caption-card{color:var(--ink,#101e38);font-family:Manrope,sans-serif;line-height:1.7}.ds-caption{display:flex;justify-content:space-between;gap:20px;align-items:baseline;margin-top:23px}.ds-caption h3{margin:0;font-size:30px;font-weight:500;line-height:1.3;letter-spacing:-.02em}.ds-caption a{color:inherit;text-decoration:none}.ds-caption p{font-size:14px;color:var(--muted,#53627b);margin:4px 0 0}.ds-caption>span{font-size:11px;color:var(--muted,#53627b)}.ds-role{font-size:11px;margin:15px 0 0;padding-top:15px;border-top:1px solid var(--line,#cad3e3);color:var(--muted,#53627b)}.ds-caption a:focus-visible{outline:2px solid #d95b46;outline-offset:6px}"
+      "css": ".ds-caption-card{color:var(--ink,#171916);font-family:Manrope,sans-serif;line-height:1.7}.ds-caption{display:flex;justify-content:space-between;gap:20px;align-items:baseline;margin-top:23px}.ds-caption h3{margin:0;font-size:30px;font-weight:500;line-height:1.3;letter-spacing:-.02em}.ds-caption a{color:inherit;text-decoration:none}.ds-caption p{font-size:14px;color:var(--muted,#686b62);margin:4px 0 0}.ds-caption>span{font-size:11px;color:var(--muted,#686b62)}.ds-role{font-size:11px;margin:15px 0 0;padding-top:15px;border-top:1px solid var(--line,#d2d3c9);color:var(--muted,#686b62)}.ds-caption a:focus-visible{outline:2px solid #a97736;outline-offset:6px}"
     },
     {
       "name": "Playback seek field",
       "kind": "input",
       "description": "Native seek input with a progressively enhanced decoded waveform canvas.",
       "html": "<div class=\"ds-player-surface\"><input class=\"ds-seek\" type=\"range\" min=\"0\" max=\"30\" value=\"0\" step=\"0.1\" aria-label=\"Preview playback position\"></div>",
-      "css": ".ds-player-surface{background:var(--ink,#101e38);padding:14px 20px}.ds-seek{width:100%;min-width:40px;accent-color:var(--accent,#ff866e);height:28px;cursor:pointer}.ds-seek:focus-visible{outline:2px solid #d95b46;outline-offset:6px}"
+      "css": ".ds-player-surface{background:var(--ink,#171916);padding:14px 20px}.ds-seek{width:100%;min-width:40px;accent-color:var(--brass,#bea47b);height:28px;cursor:pointer}.ds-seek:focus-visible{outline:2px solid #a97736;outline-offset:6px}"
     }
   ],
   "narrative": {
     "northStar": "Photographic studio portfolio",
-    "overview": "A real console-room portrait opens Home, framed by midnight blue and a dark scrim. Porcelain, coral actions, generous space, and original release art carry five static pages. Joe Joaquin, Serban Ghenea, and Craig Bauer informed the photographic opening, emphasis on work, restrained framing, and clear contact path.",
+    "overview": "A real console-room portrait opens Home, framed by charcoal and a dark scrim. Warm paper, muted brass actions, generous space, and original release art carry five static pages. Joe Joaquin, Serban Ghenea, and Craig Bauer informed the photographic opening, emphasis on work, restrained framing, and clear contact path.",
     "keyCharacteristics": [
       "Manrope for all text and local Phosphor icons.",
-      "Midnight blue header, photographic hero, footer, and audio player.",
-      "Porcelain content and accent actions.",
+      "Charcoal header, photographic hero, footer, and audio player.",
+      "Warm paper content and brass actions.",
       "Home, Music, Live Work, About, and Contact at separate URLs.",
       "Manual previews, exact credits, and an email-draft contact form.",
       "Two-line masked name entrance, direct homepage preview, and actual audio waveform."
@@ -186,7 +186,7 @@
     "rules": [
       {
         "name": "Fixed composition",
-        "body": "Keep midnight blue and porcelain across operating-system themes.",
+        "body": "Keep charcoal and warm paper across operating-system themes.",
         "section": "colors"
       },
       {

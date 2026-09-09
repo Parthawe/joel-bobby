@@ -6,9 +6,6 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const context = canvas?.getContext('2d');
   if (!media || !context) return;
-  const palette = getComputedStyle(document.documentElement);
-  const playedColor = palette.getPropertyValue('--accent').trim();
-  const unplayedColor = palette.getPropertyValue('--waveform-muted').trim();
   const cache = new Map();
   let peaks = null;
   let fetchController;
@@ -32,7 +29,7 @@
     for (let i = 0; i < count; i++) {
       const amplitude = peaks[Math.floor(i / count * peaks.length)];
       const barHeight = Math.max(2, amplitude * (height - 8));
-      context.fillStyle = i / count <= progress ? playedColor : unplayedColor;
+      context.fillStyle = i / count <= progress ? '#bea47b' : '#697365';
       context.fillRect(i * width / count, (height - barHeight) / 2, 2, barHeight);
     }
   }

@@ -12,7 +12,3 @@ QA: every route desktop/mobile; real playback and release deep links; nav and mo
 ## Premium motion refinement
 
 User asks for a more modern, animated, premium experience while retaining five pages. Focal sequence: the studio portrait opens through a crop while Joel's name enters in two typographic masks. Homepage offers a real Ninde Koode preview immediately. Continuity: selected artwork wipes into the listening station, with track data settling beside it. Feedback: native audio clock drives an actual decoded preview waveform; play/pause controls share state, the record icon turns only during visible playback. Budget: no libraries, no global scroll listener, no custom cursor or scroll hijack. Audio decoding is lazy, cached per preview, and cancellable. Animation frames only run while the audio plays and the document is visible. Reduced motion removes decorative animation; native seeking remains available if waveform loading fails.
-
-## Current palette: midnight, porcelain, coral
-
-The user requested a different, more interesting palette. Midnight blue #101e38 replaces charcoal throughout navigation, hero scrims, live features, and footer. Porcelain #f1f4fa and pale blue #e2e9f4 replace olive-paper surfaces. Electric coral #ff866e marks controls, audio progress, active states, and the full-width contact callout. Deep coral #9c3c33 keeps link-hover text readable on light surfaces. The bass stage uses #192d4b to complement the warm wood. Content, layout, 3D materials, and interactions stay intact.

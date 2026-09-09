@@ -2,22 +2,22 @@
 name: Joel Bobby
 description: Photographic studio portfolio for a musician, producer, and engineer.
 colors:
-  ink: "#101e38"
-  paper: "#f1f4fa"
-  white: "#ffffff"
-  accent: "#ff866e"
-  muted: "#53627b"
-  line: "#cad3e3"
-  dark-muted: "#b7c6df"
-  button-hover: "#ffa591"
-  link-hover: "#9c3c33"
-  form-surface: "#e2e9f4"
-  track-playing: "#f8ded8"
-  focus: "#d95b46"
-  player-surface: "#182c4d"
-  caret: "#9c3c33"
+  ink: "#171916"
+  paper: "#efeee8"
+  white: "#faf9f5"
+  brass: "#bea47b"
+  muted: "#686b62"
+  line: "#d2d3c9"
+  dark-muted: "#b6b9ae"
+  button-hover: "#d1bc9b"
+  link-hover: "#82633a"
+  form-surface: "#e3e3d9"
+  track-playing: "#ded8ca"
+  focus: "#a97736"
+  player-surface: "#20241f"
+  caret: "#755929"
   nav-outline: "#ffffff40"
-  player-shadow: "#08132a40"
+  player-shadow: "#080d0840"
 typography:
   display:
     fontFamily: "Manrope, sans-serif"
@@ -68,7 +68,7 @@ spacing:
   section-large: "100px"
 components:
   button:
-    backgroundColor: "{colors.accent}"
+    backgroundColor: "{colors.brass}"
     textColor: "{colors.ink}"
     rounded: "{rounded.action}"
     padding: "15px 25px"
@@ -99,7 +99,7 @@ components:
 
 ## Overview
 
-The visual direction is a photographic studio portfolio. A real console-room portrait opens the home page, framed by midnight blue and a dark scrim. Porcelain, coral actions, generous space, and original release art carry the rest of the site.
+The visual direction is a photographic studio portfolio. A real console-room portrait opens the home page, framed by charcoal and a dark scrim. Warm paper, muted brass actions, generous space, and original release art carry the rest of the site.
 
 Joe Joaquin informed the photographic opening and separate pages; Serban Ghenea informed the emphasis on recordings and credits; Craig Bauer informed the restrained dark framing and contact path. `research/DESIGN-REFERENCES.md` records the references. Their assets and claims are not part of Joel's site.
 
@@ -107,9 +107,9 @@ This document records the current implementation in `src/shared.mjs`, `src/pages
 
 ## Colors
 
-The frontmatter owns the color values. Midnight blue `ink` fills the shared header, home hero, home live-work section, and footer. The player uses #182c4d. Porcelain `paper` fills the main reading areas. `white` marks the active or hovered desktop navigation item. Muted `accent` fills primary buttons and the player toggle, accents the seek field, and marks the current page.
+The frontmatter owns the color values. Charcoal `ink` fills the shared header, home hero, home live-work section, and footer. The player uses #20241f. Warm `paper` fills the main reading areas. `white` marks the active or hovered desktop navigation item. Muted `brass` fills primary buttons and the player toggle, accents the seek field, and marks the current page.
 
-Use `muted` for descriptions and metadata on light backgrounds, `dark-muted` for supporting text on midnight blue, and `line` for list dividers. Pale stone surfaces separate the live session panel, research section, and contact form. Hover and playing states use subdued neutral changes. The focus outline is deep coral.
+Use `muted` for descriptions and metadata on light backgrounds, `dark-muted` for supporting text on charcoal, and `line` for list dividers. Pale stone surfaces separate the live session panel, research section, and contact form. Hover and playing states use subdued neutral changes. The focus outline is warm brown.
 
 The composition remains fixed across operating-system color themes. Photography and cover art supply most of the color variation.
 
@@ -149,13 +149,13 @@ Primary actions have a (54px) minimum height. Text links, menu controls, source 
 
 ### Navigation and shared shell
 
-The uppercase wordmark includes a small “Music & sound” line. Desktop navigation uses a accent underline and `aria-current="page"` for the active page. Mobile navigation opens below the header; the current link is accent. The menu button updates its accessible label and expanded state. Escape closes it and restores focus. A skip link targets the main content.
+The uppercase wordmark includes a small “Music & sound” line. Desktop navigation uses a brass underline and `aria-current="page"` for the active page. Mobile navigation opens below the header; the current link is brass. The menu button updates its accessible label and expanded state. Escape closes it and restores focus. A skip link targets the main content.
 
 Each page has its own URL, title, description, and current-page state. Legacy home hashes redirect to their page equivalents. Native page navigation ends audio playback.
 
 ### Actions and album cards
 
-The primary button is accent with midnight blue text and a lighter hover state. Plain links have a trailing icon; text links add a thin underline and brown hover text. Album cards give original cover art a full square, with title, artist, year, and exact roles below. Their links can preselect the release on Music through `?release=pills` or `?release=azad`.
+The primary button is brass with charcoal text and a lighter hover state. Plain links have a trailing icon; text links add a thin underline and brown hover text. Album cards give original cover art a full square, with title, artist, year, and exact roles below. Their links can preselect the release on Music through `?release=pills` or `?release=azad`.
 
 ### Music and audio
 
@@ -198,14 +198,8 @@ Detector review: the track hover now translates its title instead of animating p
 
 ## About: 3D bass study
 
-The `#bass` section follows Joel's portrait and biography. A slate-blue stage (#192d4b) pairs a short introduction and link to Music with an original amber, rosewood, and nickel four-string bass. It is labelled as an interactive study, without implying ownership or a manufacturer. The body and hardware are real 3D meshes, not a flat-image transform.
+The `#bass` section follows Joel's portrait and biography. A charcoal-green stage (#1c211c) pairs a short introduction and link to Music with an original amber, rosewood, and nickel four-string bass. It is labelled as an interactive study, without implying ownership or a manufacturer. The body and hardware are real 3D meshes, not a flat-image transform.
 
 The stage is 650px high on desktop, 500px on mobile, and 445px at the narrowest breakpoint. Desktop copy/model columns use a .85:1.45 ratio; mobile stacks them. A thin rule separates the model from status text and labelled controls. Text uses the existing Manrope hierarchy; the custom WebGL scene uses the site's warm studio lighting.
 
 Drag rotates the model; arrow keys and directional buttons provide equivalent controls. Reset restores its three-quarter view. Auto-rotation is off by default, pauses offscreen/when hidden, and stays off with reduced motion. Rendering otherwise happens only on interaction or resize. The Three.js bundle loads within 200px of the section, only on About. A still render and clear status remain available if the browser cannot display WebGL.
-
-## Current color roles
-
-The current palette is midnight blue (#101e38), porcelain (#f1f4fa), and coral (#ff866e). Pale blue (#e2e9f4) separates form and featured-work surfaces. The dark player (#182c4d) and 3D stage (#192d4b) sit above the navy base. Metadata is slate on light backgrounds and pale blue on dark backgrounds.
-
-Coral carries primary actions, elapsed audio, selected states, and the full-width contact callout. The callout reverses its action to navy with porcelain text. Deep coral (#9c3c33) is used for link-hover text on light surfaces. Focus rings use #d95b46, with navy rings on the coral callout. Selected tracks use #f8ded8 so both titles and muted metadata remain legible. The guitar's wood and hardware retain their material colors, while its fallback render matches the new stage.
