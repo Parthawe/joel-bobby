@@ -1,3 +1,7 @@
+# Midnight and coral palette
+
+The palette now covers all five pages, hero scrims, contact callouts, focus/selection states, audio waveform, and the 3D bass stage/poster. Contrast checks cover body/metadata, forms, actions/hover, playing-track metadata, waveform controls, dark captions, and focus indicators. Focus and selected-track colors were adjusted to meet their respective thresholds. Representative desktop and mobile renders were inspected, and real audio playback still worked.
+
 # About-page 3D bass addition
 
 Verified the custom model in the live browser at desktop and phone widths. Pointer drag changed rotation from -18° to 93° and exposed the body's side profile. Directional buttons, keyboard arrows, reset, and auto-rotation controls worked. No browser errors were captured during the final test. Geometry and assets are original; model provenance and the Three.js license are recorded in ASSETS.md.
