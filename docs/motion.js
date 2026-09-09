@@ -97,3 +97,97 @@
     record.dataset.inView = String(entries[0].isIntersecting);
   }).observe(record);
 })();
+
+/* A quiet, section-aware motion layer. It adds context without hiding content when JavaScript is unavailable. */
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const header = document.querySelector('.site-header');
+  const main = document.querySelector('main');
+  if (!header || !main) return;
+
+  const progressLine = document.createElement('span');
+  progressLine.className = 'page-progress-line';
+  progressLine.setAttribute('aria-hidden', 'true');
+  header.append(progressLine);
+
+  const sections = [...main.querySelectorAll(':scope > section')];
+  const pageNames = {home:'Home',music:'Music',live:'Live work',about:'About',contact:'Contact'};
+  const fallbackLabels = {
+    home:['Introduction','Approach','Selected recordings','Live work'],
+    music:['Introduction','Listening room'],
+    live:['Introduction','Featured work'],
+    about:['Introduction','The instrument','The practice','Research'],
+    contact:['Start a project']
+  };
+  const labels = sections.map((section, index) => {
+    const heading = section.querySelector('h1,h2');
+    const clean = heading?.textContent.replace(/\s+/g, ' ').trim();
+    return fallbackLabels[document.body.dataset.page]?.[index] || clean || `Section ${index + 1}`;
+  });
+
+  const indicator = document.createElement('aside');
+  indicator.className = 'journey-indicator';
+  indicator.setAttribute('aria-label', 'Current page section');
+  indicator.innerHTML = `<span class="journey-kicker">${pageNames[document.body.dataset.page] || 'Portfolio'}</span><strong class="journey-label"></strong><span class="journey-count"></span>`;
+  header.insertBefore(indicator, header.querySelector('nav'));
+  const indicatorLabel = indicator.querySelector('.journey-label');
+  const indicatorCount = indicator.querySelector('.journey-count');
+  let activeSection = 0;
+
+  function setSection(index) {
+    if (index < 0 || index >= sections.length) return;
+    activeSection = index;
+    indicatorLabel.textContent = labels[index];
+    indicatorCount.textContent = `${String(index + 1).padStart(2, '0')} / ${String(sections.length).padStart(2, '0')}`;
+    indicator.style.setProperty('--section-progress', (index + 1) / sections.length);
+  }
+  setSection(0);
+
+  const sectionObserver = new IntersectionObserver(entries => {
+    const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) setSection(sections.indexOf(visible.target));
+  }, {rootMargin:'-28% 0px -50% 0px', threshold:[0,.15,.35,.6]});
+  sections.forEach(section => sectionObserver.observe(section));
+
+  const revealTargets = [...main.querySelectorAll('.home-intro > *, .section-heading, .album-card, .home-live-inner > *, .page-heading > *, .release-selector, .listening-room > *, .additional-project > *, .live-feature > *, .live-pair article, .credit-heading, .credits-list article, .about-feature > *, .guitar-layout > *, .practice-list article, .research-inner > *, .contact-page > *, .site-cta > *')];
+  const imageTargets = [...main.querySelectorAll('.album-art, .live-poster, .about-photo, .sleeve-wrap')];
+  if (!reduced.matches && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('motion-ready');
+    revealTargets.forEach((element, index) => {
+      element.classList.add('motion-reveal');
+      element.style.setProperty('--reveal-delay', `${Math.min(index % 3, 2) * 70}ms`);
+    });
+    imageTargets.forEach(element => element.classList.add('motion-image'));
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('motion-visible');
+        revealObserver.unobserve(entry.target);
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:.08});
+    [...new Set([...revealTargets, ...imageTargets])].forEach(element => revealObserver.observe(element));
+  }
+
+  let frame = 0;
+  function updateScroll() {
+    frame = 0;
+    const distance = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const progress = Math.min(1, Math.max(0, scrollY / distance));
+    header.style.setProperty('--page-progress', progress);
+    const readingLine = scrollY + innerHeight * .45;
+    let nextSection = 0;
+    sections.forEach((section, index) => { if (section.offsetTop <= readingLine) nextSection = index; });
+    if (nextSection !== activeSection) setSection(nextSection);
+    if (!reduced.matches && document.body.dataset.page === 'home') {
+      const shift = Math.min(26, scrollY * .045);
+      document.documentElement.style.setProperty('--hero-shift', `${shift}px`);
+    }
+  }
+  function requestScrollUpdate() {
+    if (!frame) frame = requestAnimationFrame(updateScroll);
+  }
+  addEventListener('scroll', requestScrollUpdate, {passive:true});
+  addEventListener('resize', requestScrollUpdate, {passive:true});
+  reduced.addEventListener('change', requestScrollUpdate);
+  updateScroll();
+})();
