@@ -1,0 +1,8 @@
+# Direction contract
+Mode: Experience. Subject: Joel Bobby, musician / producer / engineer.
+Audience scene: listening at home or checking credits between sessions; a bright sleeve-like page remains readable on phones outdoors as well as in studios.
+Grounded candidates: festival stage poster; studio session log; Indian independent gig handbill; recording contact sheet; modern performance program; record label catalog; independent record-store listening room.
+Assigned candidate 7: independent record-store listening room. Large condensed cobalt-and-white typography, physical sleeve photography, warm off-white listening table, human-scale precise credits. Open with a real portrait and the musician's name; move to an interactive two-release listening station, live work, biography, contact.
+Challengers considered: city-pop sleeve shares the listening culture but invents a scenic world unrelated to Joel; nixie counter favors engineering over music; fluid ink competes with real work. The record-store direction wins audience identification and product clarity. Other dealt challengers do not improve either axis.
+Palette: cobalt #233fe5, warm white #f4f3ed, ink #192522, pale lavender #dfdeec; cobalt owns the full hero and footer. Antonio condensed display and Manrope text, self-hosted. Oversized artist name is the governing poster element. One musical interaction: preview tracks in a persistent player; sleeve rotates slightly on selection, motion respects reduced motion. No fake equalizer or autoplay.
+Verification: desktop 1440x1000, mobile 390x844 and narrow 320, keyboard controls, two releases, all playback states, live-credit expansion, menu, copy email, contact links. Delivery: static GitHub Pages build.

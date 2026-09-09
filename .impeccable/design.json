@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-09T17:15:32.761673+00:00",
+  "title": "Design System: Joel Bobby",
+  "extensions": {
+    "colorMeta": {
+      "blue": {
+        "role": "primary",
+        "displayName": "Cobalt"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm paper"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Dark green ink"
+      },
+      "lavender": {
+        "role": "neutral",
+        "displayName": "Pale lavender"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted green-gray"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Soft divider"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Artist name",
+        "purpose": "Oversized Antonio hero name."
+      },
+      "headline": {
+        "displayName": "Section heading",
+        "purpose": "Antonio major section headings; live and contact have observed size overrides."
+      },
+      "title": {
+        "displayName": "Release title",
+        "purpose": "Manrope release titles."
+      },
+      "body": {
+        "displayName": "Body default",
+        "purpose": "Base page text; individual descriptions are often smaller."
+      },
+      "label": {
+        "displayName": "Small label",
+        "purpose": "Metadata and supporting captions."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sleeve",
+        "value": "0 12px 25px #19252225",
+        "purpose": "Lifts the cover image above its mat."
+      },
+      {
+        "name": "player",
+        "value": "0 12px 40px #14221a35",
+        "purpose": "Separates the fixed player from page content."
+      },
+      {
+        "name": "mobile-navigation",
+        "value": "0 15px 20px #16299125",
+        "purpose": "Separates the open menu from the hero."
+      }
+    ],
+    "motion": [
+      {
+        "name": "portrait-reveal",
+        "value": "1.4s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Initial clip reveal and scale from 1.04 to 1."
+      },
+      {
+        "name": "sleeve-hover",
+        "value": "transform .5s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Straightens the sleeve from -3deg on hover; release selection does not animate it."
+      },
+      {
+        "name": "control-transition",
+        "value": ".2s ease",
+        "purpose": "Button hover, navigation underlines, contact rotation, and disclosure icon."
+      },
+      {
+        "name": "track-transition",
+        "value": ".18s ease",
+        "purpose": "Track foreground and hover background."
+      },
+      {
+        "name": "live-image-hover",
+        "value": "transform .7s ease",
+        "purpose": "Scales the live feature image to 1.035."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Removes all animation and transitions, smooth scrolling, and sleeve rotation."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "360px"
+      },
+      {
+        "name": "mobile",
+        "value": "700px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1024px"
+      },
+      {
+        "name": "wide",
+        "value": "1700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Light listening button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Primary listening action on the cobalt hero.",
+      "html": "<a class=\"ds-button\" href=\"#music\">Hear the work</a>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:53px;padding:15px 22px;border-radius:2px;background:var(--paper,#f4f3ed);color:var(--blue,#233fe5);font:700 13px/1.65 Manrope,sans-serif;text-decoration:none;transition:background .2s,transform .2s}.ds-button:hover{background:#dfe4ff;transform:translateY(-2px)}.ds-button:focus-visible{outline:3px solid #db7200;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}"
+    },
+    {
+      "name": "Text link",
+      "kind": "button",
+      "refersTo": "text-link",
+      "description": "Underlined external or contextual action.",
+      "html": "<a class=\"ds-link\" href=\"https://music.apple.com/us/album/pills-ep/1629320900\">Full release on Apple Music</a>",
+      "css": ".ds-link{display:inline-flex;align-items:center;padding:0 0 5px;border-bottom:1px solid currentColor;color:var(--ink,#192522);font:750 12px/1.65 Manrope,sans-serif;text-decoration:none}.ds-link:hover{color:var(--blue,#233fe5)}.ds-link:focus-visible{outline:3px solid #db7200;outline-offset:6px}"
+    },
+    {
+      "name": "Release selector",
+      "kind": "custom",
+      "refersTo": "release-selector-active",
+      "description": "Selected and unselected release buttons; production JavaScript updates pressed state.",
+      "html": "<div class=\"ds-releases\" role=\"group\" aria-label=\"Choose a release\"><button class=\"ds-release\" aria-pressed=\"true\">Pills<span>Joash Mathew</span></button><button class=\"ds-release\" aria-pressed=\"false\">Azad Panchi<span>Roohani</span></button></div>",
+      "css": ".ds-releases{display:flex;gap:34px;border-bottom:1px solid var(--line,#c8cdc3)}.ds-release{cursor:pointer;text-align:left;border:0;background:none;color:var(--ink,#192522);padding:0 0 20px;min-height:65px;position:relative;font:750 17px/1.65 Manrope,sans-serif}.ds-release span{display:block;margin-top:2px;font-size:11px;font-weight:500;color:var(--muted,#55605b)}.ds-release[aria-pressed=true]{color:var(--blue,#233fe5)}.ds-release:after{content:\"\";position:absolute;bottom:-1px;left:0;right:0;height:3px;background:var(--blue,#233fe5);transform:scaleX(0);transform-origin:left;transition:transform .2s}.ds-release[aria-pressed=true]:after{transform:scaleX(1)}.ds-release:focus-visible{outline:3px solid #db7200;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-release:after{transition:none}}"
+    },
+    {
+      "name": "Track row",
+      "kind": "custom",
+      "refersTo": "track",
+      "description": "Full-width track action with pressed state indicating active playback.",
+      "html": "<button class=\"ds-track\" aria-pressed=\"false\" aria-label=\"Play track preview\"><span class=\"ds-number\">01</span><span class=\"ds-title\">Track title</span><span class=\"ds-duration\">0:30</span><svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\"><path d=\"M8 5v14l11-7Z\" fill=\"currentColor\"/></svg></button>",
+      "css": ".ds-track{display:grid;grid-template-columns:28px 1fr 35px 30px;align-items:center;width:100%;gap:10px;text-align:left;min-height:50px;padding:13px 4px;border:0;border-bottom:1px solid var(--line,#c8cdc3);background:none;color:var(--ink,#192522);font:400 12px/1.65 Manrope,sans-serif;cursor:pointer;transition:color .18s,background .18s}.ds-number,.ds-duration{color:var(--muted,#55605b);font-size:10px;font-variant-numeric:tabular-nums}.ds-title{font-weight:650}.ds-track svg{justify-self:end}.ds-track:hover{background:#e6e8e0;color:var(--blue,#233fe5)}.ds-track[aria-pressed=true]{background:#e6e8f4;color:var(--blue,#233fe5)}.ds-track:focus-visible{outline:3px solid #db7200;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-track{transition:none}}"
+    },
+    {
+      "name": "Playback seek field",
+      "kind": "input",
+      "description": "Native range input styled for the dark audio player.",
+      "html": "<div class=\"ds-seek-surface\"><input class=\"ds-seek\" type=\"range\" min=\"0\" max=\"30\" step=\"0.1\" value=\"0\" aria-label=\"Preview playback position\"></div>",
+      "css": ".ds-seek-surface{padding:14px 20px;background:var(--ink,#192522)}.ds-seek{width:100%;min-width:40px;accent-color:#c6d0ff;height:28px;cursor:pointer}.ds-seek:focus-visible{outline:3px solid #db7200;outline-offset:6px}"
+    },
+    {
+      "name": "Credit disclosure",
+      "kind": "custom",
+      "description": "Native disclosure for detailed project credits.",
+      "html": "<details class=\"ds-credits\"><summary class=\"ds-summary\">More from the desk<svg aria-hidden=\"true\" width=\"25\" height=\"25\" viewBox=\"0 0 24 24\"><path d=\"M12 4v16M4 12h16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></summary><article class=\"ds-credit\"><h3>Clear Water</h3><p>Tony Moreno\u2019s students \u00b7 NYU Open House, 2025</p><span>Live console mix</span></article></details>",
+      "css": ".ds-credits{background:var(--lavender,#dfdeec);color:var(--ink,#192522);border-top:1px solid #b9b8c8;border-bottom:1px solid #b9b8c8;font-family:Manrope,sans-serif}.ds-summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;font-size:20px;font-weight:700}.ds-summary::-webkit-details-marker{display:none}.ds-summary svg{transition:transform .2s}.ds-credits[open] .ds-summary svg{transform:rotate(45deg)}.ds-credit{display:grid;grid-template-columns:1fr 1.4fr 1fr;align-items:center;gap:20px;border-top:1px solid #c6c5d2;padding:17px 0}.ds-credit h3{margin:0;font-size:12px}.ds-credit p,.ds-credit span{margin:0;font-size:10px}.ds-summary:focus-visible{outline:3px solid #db7200;outline-offset:6px}@media(max-width:700px){.ds-credit{grid-template-columns:1fr;gap:4px}.ds-summary{font-size:18px;padding:20px 0}}@media(prefers-reduced-motion:reduce){.ds-summary svg{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Independent record-store listening room",
+    "overview": "A large condensed name, a real studio portrait, and full cobalt sections give the page its identity. Release sleeves, restrained track rows, and specific credits support listening and browsing. This scan records the implemented static site, including the paper utility footer and sleeve hover behavior.",
+    "keyCharacteristics": [
+      "Antonio display type and Manrope reading text.",
+      "Cobalt hero and contact sections; paper utility footer.",
+      "Original release artwork and documentary images.",
+      "Two selectable releases with a persistent native-audio preview player.",
+      "Detailed, role-specific live credits."
+    ],
+    "rules": [
+      {
+        "name": "Fixed palette",
+        "body": "Keep the implemented light palette across operating-system themes.",
+        "section": "colors"
+      },
+      {
+        "name": "Limited shadows",
+        "body": "Use depth for the sleeve, fixed player, and open mobile navigation.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use real photographs and original work.",
+      "Do preserve accurate credit roles and source links.",
+      "Do preserve keyboard focus, native disclosure, and reduced-motion behavior."
+    ],
+    "donts": [
+      "Do not autoplay audio.",
+      "Do not add fake equalizers or invented credits.",
+      "Do not turn every project into a rounded shadowed card."
+    ]
+  }
+}
