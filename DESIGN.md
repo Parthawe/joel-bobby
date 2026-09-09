@@ -1,182 +1,178 @@
 ---
 name: Joel Bobby
-description: A record-store listening room for a musician, producer, and engineer.
+description: Photographic studio portfolio for a musician, producer, and engineer.
 colors:
-  blue: "#233fe5"
-  paper: "#f4f3ed"
-  ink: "#192522"
-  lavender: "#dfdeec"
-  muted: "#55605b"
-  line: "#c8cdc3"
-  sleeve-surface: "#e5e5da"
-  button-hover: "#dfe4ff"
-  track-hover: "#e6e8e0"
-  track-playing: "#e6e8f4"
-  focus: "#db7200"
+  ink: "#171916"
+  paper: "#efeee8"
+  white: "#faf9f5"
+  brass: "#bea47b"
+  muted: "#686b62"
+  line: "#d2d3c9"
+  dark-muted: "#b6b9ae"
+  button-hover: "#d1bc9b"
+  link-hover: "#82633a"
+  form-surface: "#e3e3d9"
+  track-playing: "#ded8ca"
+  focus: "#a97736"
 typography:
   display:
-    fontFamily: "Antonio, sans-serif"
-    fontSize: "clamp(112px, 17.2vw, 270px)"
-    fontWeight: 650
-    lineHeight: 0.95
-    letterSpacing: "-0.035em"
+    fontFamily: "Manrope, sans-serif"
+    fontSize: "clamp(74px, 8.8vw, 132px)"
+    fontWeight: 450
+    lineHeight: 1.02
+    letterSpacing: "-0.04em"
+  page-title:
+    fontFamily: "Manrope, sans-serif"
+    fontSize: "clamp(60px, 6.8vw, 100px)"
+    fontWeight: 450
+    lineHeight: 1.06
+    letterSpacing: "-0.04em"
   headline:
-    fontFamily: "Antonio, sans-serif"
-    fontSize: "clamp(64px, 6.7vw, 100px)"
-    fontWeight: 550
-    lineHeight: 1.04
-    letterSpacing: "-0.025em"
+    fontFamily: "Manrope, sans-serif"
+    fontSize: "clamp(30px, 3.3vw, 48px)"
+    fontWeight: 500
+    lineHeight: 1.18
+    letterSpacing: "-0.035em"
   title:
     fontFamily: "Manrope, sans-serif"
-    fontSize: "43px"
-    fontWeight: 750
-    lineHeight: 1.1
-    letterSpacing: "-0.035em"
+    fontSize: "24px"
+    fontWeight: 600
+    lineHeight: 1.3
+    letterSpacing: "-0.02em"
   body:
     fontFamily: "Manrope, sans-serif"
     fontSize: "15px"
     fontWeight: 400
-    lineHeight: 1.65
+    lineHeight: 1.7
   label:
     fontFamily: "Manrope, sans-serif"
     fontSize: "11px"
-    fontWeight: 400
-    lineHeight: 1.65
+    fontWeight: 650
+    lineHeight: 1.7
 rounded:
-  button: "2px"
-  player: "4px"
+  square: "0"
   circle: "50%"
 spacing:
-  track-gap: "10px"
-  button-inline: "22px"
-  sleeve-inset: "28px"
-  section-block: "100px"
-  section-block-mobile: "65px"
+  control-inline: "24px"
+  form-inset: "35px"
+  feature-inset: "45px"
+  section-large: "100px"
 components:
-  button-light:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.blue}"
-    rounded: "{rounded.button}"
-    padding: "15px 22px"
-  button-light-hover:
-    backgroundColor: "{colors.button-hover}"
-  release-selector-active:
-    textColor: "{colors.blue}"
-    padding: "0 0 20px"
-  track:
+  button:
+    backgroundColor: "{colors.brass}"
     textColor: "{colors.ink}"
-    padding: "13px 4px"
+    rounded: "{rounded.square}"
+    padding: "15px 24px"
+  button-hover:
+    backgroundColor: "{colors.button-hover}"
+  text-link:
+    padding: "10px 0"
+  input:
+    textColor: "{colors.ink}"
+    rounded: "{rounded.square}"
+    padding: "12px 0"
+    width: "100%"
+  track:
+    padding: "14px 5px"
     width: "100%"
   track-playing:
     backgroundColor: "{colors.track-playing}"
-    textColor: "{colors.blue}"
-  text-link:
-    textColor: "{colors.ink}"
-    padding: "0 0 5px"
   player:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
-    rounded: "{rounded.player}"
     padding: "14px 20px"
+  project-form:
+    backgroundColor: "{colors.form-surface}"
+    padding: "35px"
 ---
 
 # Design System: Joel Bobby
 
 ## Overview
 
-The creative north star is an independent record-store listening room. A large condensed name, a real studio portrait, and full cobalt sections give the page its identity. Release sleeves, restrained track rows, and specific credits support listening and browsing.
+The visual direction is a photographic studio portfolio. A real console-room portrait opens the home page, framed by charcoal and a dark scrim. Warm paper, muted brass actions, generous space, and original release art carry the rest of the site.
 
-This is a scan of the implemented static site in `index.html`, `styles.css`, and `app.js`. `PRODUCT.md` supplies the commitments to real photographs, original work, and accurate roles; `.impeccable/direction.md` records the selected visual direction. Where the direction and code differ, this document describes the code.
+Joe Joaquin informed the photographic opening and separate pages; Serban Ghenea informed the emphasis on recordings and credits; Craig Bauer informed the restrained dark framing and contact path. `research/DESIGN-REFERENCES.md` records the references. Their assets and claims are not part of Joel's site.
 
-Key characteristics:
-
-- Oversized Antonio display type with Manrope for reading and controls.
-- Cobalt opening and contact sections around paper and lavender content areas.
-- Original release art and documentary photographs.
-- Two selectable releases and a persistent audio preview player.
-- Credits that preserve each person's role and the project context.
+This document records the current implementation in `src/shared.mjs`, `src/pages.mjs`, `styles.css`, and `app.js`. `scripts/render-pages.mjs` generates five static pages: Home, Music, Live Work, About, and Contact. Key characteristics are real photography, Manrope throughout, square artwork, precise roles, and manual audio previews.
 
 ## Colors
 
-Cobalt supplies the broad color fields and interactive emphasis. Warm paper softens the reading areas; lavender separates the live work.
+The frontmatter owns the color values. Charcoal `ink` fills the shared header, home hero, footer, and audio player. Warm `paper` fills the main reading areas. `white` marks the active or hovered desktop navigation item. Muted `brass` fills primary buttons and the player toggle, accents the seek field, and marks the current page.
 
-Primary: `blue` fills the header, hero, and contact section. It also marks selected releases, playing tracks, and link hover states. `paper` supplies their light text and the hero listening button.
+Use `muted` for descriptions and metadata on light backgrounds, `dark-muted` for supporting text on charcoal, and `line` for list dividers. Pale stone surfaces separate the home live-work feature, live session panel, research section, and contact form. Hover and playing states use subdued neutral changes. The focus outline is warm brown.
 
-Neutral: `paper` fills music, biography, and the final utility footer. `ink` is the main text color and the player background. `lavender` fills the live-work section and the portrait's biography link. `muted` supports release metadata, timings, and notes. `line` divides releases and tracks. `sleeve-surface` is the mat behind the cover image.
-
-State colors distinguish button hover, track hover, and a playing track. The warm `focus` color marks keyboard focus across light and dark surfaces. The site keeps its light palette when the operating system requests dark mode.
+The composition remains fixed across operating-system color themes. Photography and cover art supply most of the color variation.
 
 ## Typography
 
-Antonio and Manrope are self-hosted variable fonts with sans-serif fallbacks. Antonio carries the artist name, section headings, biography headline, and contact headline. Manrope carries titles, body copy, metadata, navigation, and controls. Phosphor is a locally hosted icon font used for playback, arrows, menu, copying, and disclosure.
+Manrope is the only text family, self-hosted as a variable font with a sans-serif fallback. Large headings use moderate weights and tight tracking. Display, page-title, headline, and album-title roles appear in the frontmatter. Phosphor is the locally hosted icon font for arrows, playback, menu, copy, and release symbols.
 
-The frontmatter records the base desktop roles. Release titles use the title role; live feature titles are slightly larger (48px). Biography lead copy is (23px), with a (1.45) line height and weight (550). Most explanatory paragraphs use (12–14px); the default body size is not a blanket paragraph size. Small metadata generally uses (10–11px). Track durations use tabular numerals.
+The home name is followed by a smaller profession line using `clamp(25px, 3.2vw, 43px)`, weight (400), and line height (1.23). Record and live feature titles are (43px). Biography lead copy is (20px) with line height (1.6); most descriptions are (13–15px). Metadata usually uses (10–12px). Track timings use tabular numerals. Form labels use the label role; desktop field text is (13px).
 
-At widths up to (700px), the artist name uses `clamp(108px, 27vw, 190px)` and a (0.96) line height. Main section headings become (64px), release titles (38px), and live feature titles (39px). The artist name retains its two lines and hides the decorative period. At widths up to (360px), the name becomes (26.7vw).
+At widths up to (700px), the home name becomes (68px), its profession line (28px), base page headings (59px), and base section headings (33px). Contact and biography have their own heading overrides. Form fields become (16px). At widths up to (360px), the home name is (58px) and contact headline (46px).
 
 ## Layout
 
-The page uses full-width color sections with generous horizontal insets. Header, hero, and utility footer use (4%) at desktop sizes; content sections use (6%). Base section padding is the frontmatter's section-block value. Hero columns use a (1.08:1) ratio and (5%) gap. The listening area uses (0.95:1.05) with a (7%) gap; live feature columns use (1.15:1). Biography columns are equal.
+The shared content width is `min(1200px, 88%)`, centered. Header and footer use (6%) horizontal padding. Large desktop sections commonly use (70–100px) vertical space. The header is at least (100px) tall; the home hero follows it with a viewport-relative height capped at (780px).
 
-The release sleeve is square, capped at (510px) including its mat. The desktop hero portrait has a (540px) minimum height and a cover crop. The live feature uses an image ratio of (1.35); its two smaller projects appear below in equal columns. Thin rules organize tracks, additional projects, practice areas, and credits.
+The home hero places the photograph from (38%) across the section to its right edge. The text overlaps the darkened left edge of the photograph; the image crop stays centered on the studio portrait. Introductory text uses two unequal columns. Selected recordings use two equal columns with a (6%) gap and square artwork. The home page links to the separate Music and Live Work pages.
 
-At widths up to (1024px), content sections use (75px 5%) padding and typography, portrait height, and project thumbnails tighten. At widths up to (700px), content sections use (65px 6%) padding, major grids become one column, and the portrait becomes (400px) tall. Live projects stack, credits place metadata below the title, and the contact area stacks. The hero portrait drops to (340px) at widths up to (360px).
+Music pairs a square sleeve with its tracks in equal columns separated by (7%). Live Work pairs a square poster with session details, follows with two smaller projects, then displays all further credits in rows. About pairs portrait and biography, followed by practice rows and a research section. Contact pairs direct contact details with a form. The shared contact callout appears on every page except Contact; the footer includes all five page links.
 
-At widths from (1700px), shared horizontal padding becomes `max(6%, calc((100vw - 1550px) / 2))`; the hero name is (260px). The hero's inner grid has a (1700px) maximum width.
+At widths up to (1050px), spacing, hero placement, and project thumbnails tighten; the two contact name/email fields stack. At widths up to (700px), major grids become single columns, page headings stack, and the header becomes (82px) tall. The home image moves below the introductory text with vertical scrims. Album actions remain visible on touch layouts. About places biography before the portrait. Credit context and roles stack beneath each title, retaining the source link at the right. The player wraps its seek controls onto a second row.
 
-The player is fixed (16px) above the viewport bottom with (4%) side insets. On mobile it sits (10px) from the edges and wraps the time and seek control below the title row. Body bottom padding grows while the player is visible so it does not cover the final content.
+At widths from (1600px), header/footer insets and hero alignment use `max(6%, calc((100vw - 1400px) / 2))`. The fixed player sits (16px) above the bottom with (4%) side insets; mobile offsets are (10px). Visible-player body padding is (100px) on desktop and (122px) on mobile.
 
 ## Elevation & Depth
 
-Most surfaces are flat. Color changes and thin borders separate sections and rows. Shadows are confined to the release sleeve, floating player, and open mobile navigation; their exact values are in `.impeccable/design.json`.
+The site uses flat surfaces and thin rules. Album sleeves are straight and unframed. The player has the only floating-panel shadow; the active desktop navigation underline is implemented as a one-pixel shadow. Both exact values are in `.impeccable/design.json`.
 
-The sleeve rests at a small angle and straightens on hover. Changing releases swaps its image without a selection animation. The portrait has a one-time reveal; the live image scales slightly on hover. The reduced-motion media query removes animations and transitions, disables smooth scrolling, and leaves the sleeve straight.
+A directional dark gradient blends the portrait into the hero and keeps the text legible. Album hover scales the image slightly and reveals an action plate; keyboard focus also reveals the plate. The home text has a brief entrance. Pages use native navigation without a custom page transition. Reduced-motion preferences disable local transitions and animations.
 
 ## Shapes
 
-Photos, sleeves, metadata plates, and project rows have square edges. The primary listening button has a slight corner radius; the floating player has a slightly larger one. The contact arrow and player play/pause control are circular. Keep other controls and content close to the existing rectangular form language.
+Buttons, inputs, artwork, panels, and the player have square edges. Only the player's play/pause button is circular. Most separators are one pixel; the selected release has a two-pixel bottom border. The universal focus outline is two pixels with a six-pixel offset, reduced to three pixels of offset on form fields.
 
-Use thin rules for separation, including the active release's heavier underline (3px). The universal focus outline is (3px) with an offset of (6px). Menu and email-copy buttons have minimum or fixed (44px) targets; player controls are (42px) on desktop and (36px) on mobile.
+Primary actions have a (54px) minimum height. Text links, menu controls, source links, and desktop player controls use (44px) targets or minimum heights where specified. Mobile primary buttons have a (50px) minimum height and player controls are (40px).
 
 ## Components
 
-### Navigation and links
+### Navigation and shared shell
 
-The header is (91px) tall with a compact monogram and an inline navigation row. Link hover reveals a thin underline from the left. On mobile the header is (75px) tall and a button opens a cobalt navigation panel below it. Navigation links and Escape close the panel; Escape returns focus to the menu button. The menu exposes its expanded state and current action through accessible attributes.
+The uppercase wordmark includes a small “Music & sound” line. Desktop navigation uses a brass underline and `aria-current="page"` for the active page. Mobile navigation opens below the header; the current link is brass. The menu button updates its accessible label and expanded state. Escape closes it and restores focus. A skip link targets the main content.
 
-Text links use a persistent thin underline and a separate arrow. The listening button is light on cobalt, shifts upward (2px) on hover, and changes to the button-hover color. The copy button displays a short live status after success or failure.
+Each page has its own URL, title, description, and current-page state. Legacy home hashes redirect to their page equivalents. Native page navigation ends audio playback.
 
-### Release selector and sleeve
+### Actions and album cards
 
-Two buttons select Pills or Azad Panchi. Artist metadata sits below each title; selected state uses cobalt text and the underline. They form a labeled button group with `aria-pressed`. A selection updates the artwork, title, artist, year, role, track list, and release links together. Spotify and the press note appear for Pills only.
+The primary button is brass with charcoal text and a lighter hover state. Plain links have a trailing icon; text links add a thin underline and brown hover text. Album cards give original cover art a full square, with title, artist, year, and exact roles below. Their links can preselect the release on Music through `?release=pills` or `?release=azad`.
 
-The sleeve sits on a square mat with a caption underneath. Real cover art is required. Keep its proportions intact.
+### Music and audio
 
-### Track rows and audio player
+The release selector uses thumbnail, title, artist/year, and arrow. A bottom border indicates selection through `aria-pressed`. Selection updates the sleeve, metadata, exact role, tracks, links, and URL query together. Pills alone displays the Spotify link and press note.
 
-Each track is a full-width button with columns for number, title, duration, and play/pause icon. Rows have a (50px) minimum height, subtle hover background, and a distinct playing state. `aria-pressed` means the row is currently playing, not merely selected.
+Track rows are full-width buttons with number, title, duration, and play/pause icon. Their pressed state indicates current playback. Clicking a track reveals the fixed native-audio player with artwork, track identity, elapsed time, seek range, preview duration, and close control. Changing the displayed release does not interrupt an active preview on the same page. Closing the player pauses playback and restores focus toward the track trigger.
 
-The persistent player uses one native HTML audio element with custom controls. It appears only after a track is requested; audio never autoplays on page load. Release browsing can continue while another release plays. The player shows the active artwork, track, release, elapsed time, duration label, seek range, pause/play, and close controls. Closing pauses audio and returns focus to the originating track or selected release button.
+Audio starts only after visitor action. Playback failure provides a status message and Apple Music fallback link. Metadata failure preserves the full-release link and disables selection. JavaScript-free visitors receive direct release links. Do not imply the player continues across page navigation.
 
-Playback failures expose a status message and a full-track Apple Music link when available. Metadata-loading failure leaves the full-release link available and disables release selection. JavaScript-free visitors receive direct release links. Do not replace these states with a decorative audio visualization.
+### Live credits
 
-### Live projects and credit disclosure
+The featured session separates artist, venue/year, description, and Joel's role. Further credits are always visible, with title, project context, precise role, and an optional source link. Preserve distinctions such as assistant engineering, stage hand, live console mix, and mixing. These rows are not a disclosure control.
 
-The live feature pairs original project imagery with title, venue/year, artist, and exact role. Smaller linked projects use thumbnail, title, context, role, and arrow. The credits use native `details` and `summary`, with a plus icon that rotates (45 degrees) when expanded.
+### Contact and fields
 
-Desktop credit rows separate title, project context, role, and an optional source link. Mobile rows stack that information and keep the source link at the right. Preserve distinctions such as assistant engineering, stage hand, live console mix, and mixing. A source link appears only where the implementation provides one.
+The Contact page provides a mail link, separate copy button with live status, social links, and an optional email-draft form. The form uses a stone surface, visible labels, transparent fields, bottom borders, a native select, and a vertically resizable textarea. Focus remains visible; validation uses native required and email constraints.
 
-### Contact
-
-The cobalt contact section returns to large Antonio type and places a circular email link beside it. Hover fills the circle with paper and turns it slightly. The address remains a readable mail link with a separate copy control. The utility footer below it is paper, with a cobalt monogram and compact social links.
+Name, email, and message are required, with limits of (100), (180), and (3000) characters. Submission opens a `mailto:` draft containing project type and entered details. The visitor reviews and sends through their own email app. Keep that behavior clear beside the action; the website does not send the message. Status copy includes a direct-email fallback.
 
 ## Do's and Don'ts
 
-- Do use real photographs and original release or performance art.
-- Do keep listening, precise credits, and direct contact visible in their existing hierarchy.
-- Do preserve keyboard focus, native disclosure semantics, playback status, and reduced-motion behavior.
-- Do keep fonts and icons locally hosted.
-- Don't invent endorsements, roles, shows, or availability claims to fill a layout.
-- Don't start audio without a visitor action or introduce a fake equalizer.
-- Don't turn every project or text group into a rounded, shadowed card.
-- Don't describe planned motion or color placement as shipped behavior; verify the CSS and player logic first.
+- Do use Joel's real portrait and original cover or performance art.
+- Do use Manrope consistently and preserve the light heading weights.
+- Do keep precise roles beside each record or project.
+- Do preserve native links, page URLs, keyboard focus, form validation, and reduced-motion behavior.
+- Don't restore the superseded cobalt palette, Antonio type, tilted sleeves, or single-page navigation.
+- Don't autoplay audio or imply continuous playback between pages.
+- Don't invent credits, awards, studio ownership, availability, or reference-site endorsements.
+- Don't add rounded cards, decorative equalizers, or ornamental shadows to the flat layout.

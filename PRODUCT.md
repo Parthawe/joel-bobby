@@ -3,7 +3,7 @@
 ## Platform
 web
 ## Stack
-Proposed static HTML, CSS, and JavaScript for GitHub Pages. User was offered stack choice; pending any preference, proceed with this lightweight default under the request to build and publish.
+Static HTML, CSS, and JavaScript generated from shared Node.js templates for GitHub Pages. Existing stack retained.
 ## Users
 Inferred primary visitors: artists, collaborators, listeners, and people booking music or audio work.
 ## Product Purpose
@@ -13,7 +13,7 @@ Bassist, record producer, recording and mixing engineer whose portfolio spans in
 ## Capabilities and Constraints
 Listen to released work; explore precise credits; watch documented live performances; read a short biography; contact Joel through his published professional email. No fabricated shows, statistics, endorsements, degree completion, or availability claims. No autoplay audio. Public sources only.
 ## Brand Commitments
-Joel Bobby is the public artist name. Use his real photographs and original work. User specifically requested impeccable UI design.
+Joel Bobby is the public artist name. Use his real photographs and original work. User specifically requested impeccable UI design, inspiration from leading sound-engineer websites, and separate pages rather than a single page.
 ## Evidence on Hand
 Public site scraped into research/. Instagram linked by the site: joel_bobby_009. LinkedIn search indexing confirms Brooklyn and audio engineering. Album metadata and independent credits researched separately. Research notes retain exact source URLs and uncertainty.
 ## Product Principles

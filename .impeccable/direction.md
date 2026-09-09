@@ -1,8 +1,10 @@
-# Direction contract
-Mode: Experience. Subject: Joel Bobby, musician / producer / engineer.
-Audience scene: listening at home or checking credits between sessions; a bright sleeve-like page remains readable on phones outdoors as well as in studios.
-Grounded candidates: festival stage poster; studio session log; Indian independent gig handbill; recording contact sheet; modern performance program; record label catalog; independent record-store listening room.
-Assigned candidate 7: independent record-store listening room. Large condensed cobalt-and-white typography, physical sleeve photography, warm off-white listening table, human-scale precise credits. Open with a real portrait and the musician's name; move to an interactive two-release listening station, live work, biography, contact.
-Challengers considered: city-pop sleeve shares the listening culture but invents a scenic world unrelated to Joel; nixie counter favors engineering over music; fluid ink competes with real work. The record-store direction wins audience identification and product clarity. Other dealt challengers do not improve either axis.
-Palette: cobalt #233fe5, warm white #f4f3ed, ink #192522, pale lavender #dfdeec; cobalt owns the full hero and footer. Antonio condensed display and Manrope text, self-hosted. Oversized artist name is the governing poster element. One musical interaction: preview tracks in a persistent player; sleeve rotates slightly on selection, motion respects reduced motion. No fake equalizer or autoplay.
-Verification: desktop 1440x1000, mobile 390x844 and narrow 320, keyboard controls, two releases, all playback states, live-credit expansion, menu, copy email, contact links. Delivery: static GitHub Pages build.
+# Studio portfolio direction
+
+Mode: Experience. Reference-driven replacement, requested by the user, with real separate pages.
+References: Joe Joaquin's warm room photography and page structure; Serban Ghenea's work-led discography; Craig Bauer's restrained dark identity and clear contact path. See research/DESIGN-REFERENCES.md.
+Seed: d209f56e; assigned index 7 acknowledged. The user's reference-led category-standard request governs the outcome rather than unrelated catalog challengers.
+Grounded candidates considered: record wall, studio contact sheet, session notebook, listening suite, recording-room doorway, engineer's selected discography, photographic studio portfolio. Candidate 7 aligns with the three actual references.
+World: charcoal #171916, warm off-white #efeee8, muted brass #bea47b, stone #b3b5aa. Manrope for headings/body, clear type hierarchy, real unaltered portraits and covers. Full photographic home hero with a dark legibility scrim. Rest of site pairs quiet editorial space with records and detailed credits.
+Pages: Home introduces Joel and a small selection; Music offers the full listening station and KL316; Live Work has a featured session and all known live credits; About has portrait, biography and disciplines; Contact has direct email and an optional email-draft composer. Shared navigation with current-page state; legacy home hashes redirect to relevant routes.
+No autoplay, invented studio ownership, fabricated awards or replica logos. Existing content/links preserved. Audio remains manual with graceful streaming errors. Native multi-page navigation intentionally ends playback.
+QA: every route desktop/mobile; real playback and release deep links; nav and mobile menu; form validation/draft action; link/asset checks including nested GitHub Pages paths; independent review. First-pass defects fixed in one batch, then finish review.

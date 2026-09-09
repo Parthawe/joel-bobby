@@ -1,37 +1,55 @@
 # Joel Bobby
 
-A musician portfolio with released music, track previews, precise production credits, live work, and contact links.
+A five-page portfolio for a musician, record producer, and audio engineer. The design draws on studio photography, understated typography, and work-led presentation from sound-engineer portfolios.
 
-**Website:** https://parthawe.github.io/joel-bobby/
+**Live site:** https://parthawe.github.io/joel-bobby/
 
-## Run locally
+## Pages
+
+- `/` — introduction, selected records, and live-work preview.
+- `/music/` — released work, precise roles, and eight track previews. `?release=azad` or `?release=pills` opens the selected release.
+- `/live/` — live projects and the complete selected engineering-credit list.
+- `/about/` — biography, practice, and NYU projects.
+- `/contact/` — email, social links, and a form that opens a draft in the visitor's email app.
+
+Old home links such as `/#live` redirect to the corresponding page. Playback stops on page navigation and never starts automatically.
+
+## Run and build
+
+Requires Node.js 18+ and Python 3. No runtime framework or backend.
 
 ```sh
+npm run render
 npm run dev
-```
-
-Open http://127.0.0.1:5173. Python 3 and Node.js 18+ are sufficient; the website has no runtime framework or build dependencies.
-
-```sh
 npm run check
 npm run build
 ```
 
-`dist/` contains the static deployment. Fonts, icons, and images are self-hosted. Development packages record font/icon provenance; the checked-in assets allow builds without installing them.
+Open http://127.0.0.1:5173. The render script creates five static HTML documents from shared templates. Run it after changing templates; CSS/JavaScript edits are served directly during development.
 
 ## Edit
 
-- `index.html`: biography, live credits, links, metadata.
-- `music.json`: release metadata and Apple Music preview URLs.
-- `styles.css`: visual system and responsive layouts.
-- `app.js`: release selector, audio player, menu, email copy.
-- `research/README.md`: source trail and factual caveats.
-- `ASSETS.md`: media provenance and font licenses.
+- `src/pages.mjs`: page content and composition.
+- `src/shared.mjs`: navigation, footer, metadata and shared player.
+- `styles.css`: typography, color, layout, responsive rules and states.
+- `app.js`: player, menu, release deep links, legacy redirects, contact draft.
+- `music.json`: verified release/track metadata and preview URLs.
+- `research/README.md`: factual sources and limits.
+- `research/DESIGN-REFERENCES.md`: reference websites and design decisions.
+- `ASSETS.md`: media provenance and licenses.
 
-## Publishing
+Root and subdirectory HTML files are generated. Edit the templates, not those outputs.
 
-GitHub Pages serves the repository's `/docs` directory on `main`. After edits, run `npm run check && npm run prepare:pages`, commit the updated files, and push. No secret keys or external backend are required. Contact links open an email app; the site does not send or store messages.
+## Publish
 
-## Browser checks
+```sh
+npm run check
+npm run prepare:pages
+git add .
+git commit -m "Update portfolio"
+git push
+```
 
-Desktop and mobile visual review; 320px and 390px overflow checks; real previews from both releases; release changes; pause/close; menu; expanded credits; copied email; local navigation and asset checks. Playback requires the third-party preview service to remain available. Full Apple Music release links provide a fallback.
+GitHub Pages serves `/docs` on `main`. `prepare:pages` renders all pages, builds `dist`, then refreshes `docs` including subdirectories. Local font/image assets work from the GitHub project path.
+
+The contact form does not send or store messages. Apple Music hosts the streamed previews; direct full-release links remain available if a preview fails. Design reference sites contribute no assets or copied content.

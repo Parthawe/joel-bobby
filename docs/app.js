@@ -1,8 +1,12 @@
 const $ = (selector) => document.querySelector(selector);
+const root = document.body.dataset.root || './';
 const audio = $('#audio');
+const legacyPages = { '#music':'music/', '#live':'live/', '#about':'about/', '#contact':'contact/' };
+if(document.body.dataset.page === 'home' && legacyPages[location.hash]) location.replace(new URL(legacyPages[location.hash], location.href).href);
+let lastTrigger = null;
 const player = $('#player');
 let releases = [];
-let selected = 'pills';
+let selected = new URLSearchParams(location.search).get('release') === 'azad' ? 'azad' : 'pills';
 let active = null;
 let requestVersion = 0;
 const icon = (name) => `<i class="ph ph-${name}" aria-hidden="true"></i>`;
@@ -40,10 +44,10 @@ function syncPlayback() {
 }
 function renderRelease(id) {
   const release = releases.find(item => item.id === id);
-  if (!release) return;
+  if (!release || !$('#listening-room')) return;
   selected = id;
   document.querySelectorAll('[data-release]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.release === id)));
-  $('#release-art').src = release.image;
+  $('#release-art').src = root + release.image;
   $('#release-art').alt = `${release.title} by ${release.artist} album artwork`;
   $('#release-title').textContent = release.title;
   $('#release-byline').textContent = `${release.artist} · ${release.year}`;
@@ -59,7 +63,7 @@ function renderRelease(id) {
     button.dataset.track = index;
     button.innerHTML = `<span class="track-number">${String(index + 1).padStart(2, '0')}</span><span class="track-title"></span><span class="track-duration">${time(track.duration / 1000)}</span>${icon('play')}`;
     button.querySelector('.track-title').textContent = track.title;
-    button.addEventListener('click', () => playTrack(id, index));
+    button.addEventListener('click', () => { lastTrigger = button; playTrack(id, index); });
     list.append(button);
   });
   syncPlayback();
@@ -98,7 +102,7 @@ async function playTrack(id, index) {
   active = { release: id, index };
   $('#player-title').textContent = track.title;
   $('#player-artist').textContent = `${release.artist} · ${release.title}`;
-  $('#player-art').src = release.image;
+  $('#player-art').src = root + release.image;
   $('#player-time').textContent = '0:00';
   $('#player-seek').value = 0;
   audio.src = track.preview;
@@ -108,22 +112,33 @@ $('#player-toggle').addEventListener('click', () => { if (audio.paused) resumeAu
 $('#player-close').addEventListener('click', () => {
   ++requestVersion; audio.pause(); player.hidden = true;
   const previousButton = active?.release === selected ? document.querySelector(`[data-track="${active.index}"]`) : null;
-  (previousButton || document.querySelector(`[data-release="${selected}"]`))?.focus({ preventScroll: true });
+  (previousButton || lastTrigger || document.querySelector(`[data-release="${selected}"]`))?.focus({ preventScroll: true });
 });
 $('#player-seek').addEventListener('input', (event) => { if (Number.isFinite(audio.duration)) audio.currentTime = Number(event.target.value); });
 audio.addEventListener('timeupdate', () => { $('#player-time').textContent = time(audio.currentTime); $('#player-seek').value = audio.currentTime; $('#player-seek').setAttribute('aria-valuetext', `${time(audio.currentTime)} of ${time(audio.duration || 30)}`); });
 audio.addEventListener('loadedmetadata', () => { $('#player-seek').max = audio.duration; $('.player-preview').textContent = `${Math.round(audio.duration)}s preview`; });
 ['play', 'pause', 'ended'].forEach(name => audio.addEventListener(name, syncPlayback));
 audio.addEventListener('error', showPlaybackError);
-document.querySelectorAll('[data-release]').forEach(button => button.addEventListener('click', () => renderRelease(button.dataset.release)));
-fetch('music.json').then(response => { if (!response.ok) throw new Error('Music unavailable'); return response.json(); }).then(data => { releases = data; renderRelease(selected); }).catch(() => {
-  $('#track-list').innerHTML = '<p>Track previews could not load. You can still hear the full release on Apple Music below.</p>';
-  $('#listening-room').setAttribute('aria-busy', 'false');
+document.querySelectorAll('[data-release]').forEach(button => button.addEventListener('click', () => { renderRelease(button.dataset.release); const next = new URL(location.href); next.searchParams.set('release', button.dataset.release); history.replaceState(null, '', next); }));
+fetch(root + 'music.json').then(response => { if (!response.ok) throw new Error('Music unavailable'); return response.json(); }).then(data => { releases = data; renderRelease(selected); }).catch(() => {
+  if ($('#track-list')) $('#track-list').innerHTML = '<p>Track previews could not load. You can still hear the full release on Apple Music below.</p>';
+  $('#listening-room')?.setAttribute('aria-busy', 'false');
   document.querySelectorAll('[data-release]').forEach(button => { button.disabled = true; });
 });
 $('#year').textContent = new Date().getFullYear();
-$('#copy-email').addEventListener('click', async () => {
+$('#copy-email')?.addEventListener('click', async () => {
   try { await navigator.clipboard.writeText('joeljoshuabobby@gmail.com'); $('#copy-status').textContent = 'Email copied'; }
   catch { $('#copy-status').textContent = 'Select the email address to copy it.'; }
   setTimeout(() => { $('#copy-status').textContent = ''; }, 4000);
+});
+
+// Native validation happens before this handler. The visitor sends the email from their own app.
+$('#project-form')?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const values = new FormData(event.currentTarget);
+  const subject = `${values.get('project')} enquiry from ${values.get('name')}`;
+  const body = `Hi Joel,\n\n${values.get('message')}\n\n${values.get('name')}\n${values.get('email')}`;
+  const draftUrl = `mailto:joeljoshuabobby@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  $('#form-status').textContent = 'Your email app should open with the draft. You can also use Joel’s email address above.';
+  location.href = draftUrl;
 });
