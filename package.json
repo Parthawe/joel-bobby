@@ -1,0 +1,17 @@
+{
+  "name": "joel-bobby-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 5173 --bind 127.0.0.1",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "prepare:pages": "node scripts/prepare-pages.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/antonio": "^5.3.0",
+    "@fontsource-variable/manrope": "^5.3.0",
+    "@phosphor-icons/web": "^2.1.2"
+  }
+}

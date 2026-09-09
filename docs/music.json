@@ -1,0 +1,72 @@
+[
+  {
+    "id": "pills",
+    "title": "Pills",
+    "artist": "Joash Mathew",
+    "year": "2022",
+    "role": "Bass guitar \u00b7 Production \u00b7 Recording \u00b7 Mixing",
+    "image": "assets/pills.webp",
+    "url": "https://music.apple.com/us/album/pills-ep/1629320900?uo=4",
+    "tracks": [
+      {
+        "title": "Ek Tarfa Pyaar",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/4e/0a/38/4e0a389c-26a8-dabe-86e2-fae3cb7c5dae/mzaf_18428088413941014057.plus.aac.p.m4a",
+        "duration": 166000,
+        "url": "https://music.apple.com/us/album/ek-tarfa-pyaar/1629320900?i=1629320901&uo=4"
+      },
+      {
+        "title": "Pal",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/53/0f/11/530f11a2-0d98-bdbe-7be0-2aa9d590baed/mzaf_9410370903397414347.plus.aac.p.m4a",
+        "duration": 160000,
+        "url": "https://music.apple.com/us/album/pal/1629320900?i=1629320902&uo=4"
+      },
+      {
+        "title": "Ninde Koode",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/47/66/76/476676a2-afe4-4be7-b159-95869c184fc3/mzaf_10003978369783358105.plus.aac.p.m4a",
+        "duration": 258000,
+        "url": "https://music.apple.com/us/album/ninde-koode/1629320900?i=1629320903&uo=4"
+      },
+      {
+        "title": "Allez Si",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/7c/e4/71/7ce471a3-8dbd-8c72-a3b0-d2ee22525fd6/mzaf_9245679532680044765.plus.aac.p.m4a",
+        "duration": 203000,
+        "url": "https://music.apple.com/us/album/allez-si/1629320900?i=1629320904&uo=4"
+      },
+      {
+        "title": "Livin' in the Moment",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/ac/48/7e/ac487ec3-0676-279a-be29-84ab02030b7b/mzaf_4035759348334667916.plus.aac.p.m4a",
+        "duration": 186000,
+        "url": "https://music.apple.com/us/album/livin-in-the-moment/1629320900?i=1629320905&uo=4"
+      }
+    ]
+  },
+  {
+    "id": "azad",
+    "title": "Azad Panchi",
+    "artist": "Roohani",
+    "year": "2021",
+    "role": "Bass guitar \u00b7 Recording \u00b7 Pre-mix engineering",
+    "image": "assets/azad.webp",
+    "url": "https://music.apple.com/us/album/azad-panchi-single/1580552229?uo=4",
+    "tracks": [
+      {
+        "title": "Kya Tha Sahi",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fb/15/81/fb1581be-1455-0a47-d84c-47cf7799bc44/mzaf_6088640066068177232.plus.aac.p.m4a",
+        "duration": 331375,
+        "url": "https://music.apple.com/us/album/kya-tha-sahi/1580552229?i=1580552231&uo=4"
+      },
+      {
+        "title": "Chale Gaye",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/06/f9/1a/06f91acd-487e-c890-6446-1abcd5cfbf89/mzaf_1308855170392941405.plus.aac.p.m4a",
+        "duration": 300859,
+        "url": "https://music.apple.com/us/album/chale-gaye/1580552229?i=1580552232&uo=4"
+      },
+      {
+        "title": "Panchi",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/54/a1/e7/54a1e7f4-60f0-8651-5f4a-892838840e1d/mzaf_6112714729665694310.plus.aac.p.m4a",
+        "duration": 351867,
+        "url": "https://music.apple.com/us/album/panchi/1580552229?i=1580552233&uo=4"
+      }
+    ]
+  }
+]

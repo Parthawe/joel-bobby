@@ -1,0 +1,7 @@
+node_modules/
+dist/
+research/*.html
+research/*.json
+.impeccable/
+.DS_Store
+assets/*.jpg
