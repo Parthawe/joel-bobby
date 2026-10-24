@@ -98,6 +98,10 @@ input,textarea { caret-color:#755929; }
 .footer-top nav i { display:none; }
 .footer-top a:hover,.footer-bottom a:hover { color:var(--brass); }
 .footer-bottom { display:flex; gap:35px; align-items:center; justify-content:space-between; border-top:1px solid #ffffff24; padding-top:22px; font-size:10px; color:var(--dark-muted); }
+.footer-meta { display:flex; align-items:center; flex-wrap:wrap; gap:7px; }
+.footer-separator { color:#ffffff4d; }
+.footer-credit a { color:var(--paper); text-decoration:underline; text-decoration-color:#ffffff45; text-underline-offset:3px; transition:color .2s ease,text-decoration-color .2s ease; }
+.footer-credit a:hover { text-decoration-color:var(--brass); }
 .footer-bottom>div { display:flex; gap:25px; }
 .footer-bottom i { margin-left:7px; }
 .page-heading { display:grid; grid-template-columns:1.5fr 1fr; gap:12%; align-items:end; padding-block:80px 60px; }
